@@ -1,4 +1,4 @@
-## EcoRide
+## CarHub
 
 CarHub is a car listing and management platform that allows users to showcase their vehicles. It provides a user-friendly interface to browse through a variety of cars based on type, fuel type, transmission, and more. The platform is built using React for the frontend, Node.js for the backend, and MongoDB as the database.
 
@@ -112,7 +112,7 @@ CLOUDINARY_CLOUD_SECRET=your_cloudinary_secret    # Cloudinary API secret
 Similarly, create a .env file inside the frontend directory with the following variable:
 
 ```plaintext
-REACT_APP_BACKEND_URL=your_backend_url            # The url on which backend application will run
+REACT_APP_BACKEND_URL=your_backend_url         # Url on which backend server will run
 ```
 
 > [!NOTE]
