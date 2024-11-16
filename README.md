@@ -150,6 +150,10 @@ carhub/
 
 The CarHub application has been deployed on Vercel. It can be accessed through the following url: https://carhub-self.vercel.app
 
+## API Documentation
+
+After starting the backend server, the API Documentation with all the details of paths, params, request/response structures can be accessed through http://localhost:8000/api/docs
+
 ## Contributing
 
 Contributions are welcome! Please fork this repository and submit a pull request for any features, bugs, or enhancements.
