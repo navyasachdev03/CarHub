@@ -149,7 +149,7 @@ carhub/
 
 ## Deployed Website
 
-The CarHub application has been deployed on Vercel. It can be accessed through the following url: https://carhub.vercel.app
+The CarHub application has been deployed on Vercel. It can be accessed through the following url: https://carhub-eight-weld.vercel.app
 
 ## Contributing
 
