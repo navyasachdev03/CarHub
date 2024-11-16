@@ -1,0 +1,364 @@
+{
+	"info": {
+		"_postman_id": "2872e959-468a-4dc8-9389-92ada6f672f9",
+		"name": "CarHub",
+		"description": "API Documentation for User and Car Models",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37603896"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Navya Sachdev\",\n    \"email\": \"navya.sachdev18@gmail.com\",\n    \"contact\": \"8787899654\",\n    \"password\": \"Navya@123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"navya@gmail.com\",\n    \"password\": \"Navya@123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/auth/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "User authentication"
+		},
+		{
+			"name": "Cars",
+			"item": [
+				{
+					"name": "getAllCars",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/cars/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"cars",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCarById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/cars/6737c048108f1863b6345c48",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"cars",
+								"6737c048108f1863b6345c48"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addCar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Celerio",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "The Celerio is effortless to drive, thanks to its compact size, light controls, and excellent visibility, coupled with an automatic gearbox for convenience. Its practical design includes a peppy, fuel-efficient engine with a CNG option, while offering ample cabin space for its size. ",
+									"type": "text"
+								},
+								{
+									"key": "carType",
+									"value": "Hatchback",
+									"type": "text"
+								},
+								{
+									"key": "fuelType",
+									"value": "Petrol",
+									"type": "text"
+								},
+								{
+									"key": "transmission",
+									"value": "Automatic",
+									"type": "text"
+								},
+								{
+									"key": "company",
+									"value": "Maruti",
+									"type": "text"
+								},
+								{
+									"key": "seatingCapacity",
+									"value": "5",
+									"type": "text"
+								},
+								{
+									"key": "engine",
+									"value": "998",
+									"type": "text"
+								},
+								{
+									"key": "mileage",
+									"value": "20",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "7",
+									"type": "text"
+								},
+								{
+									"key": "images",
+									"type": "file",
+									"src": [
+										"/Users/navyasachdev/Downloads/cars/celerio/celerio-exterior-right-front-three-quarter-5.jpeg.webp",
+										"/Users/navyasachdev/Downloads/cars/celerio/new-gen-celerio-interior-dashboard.jpeg.webp",
+										"/Users/navyasachdev/Downloads/cars/celerio/new-gen-celerio-interior-front-row-seats-2.jpeg.webp"
+									]
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/cars/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"cars",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "editCar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Celerio",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "The Celerio is effortless to drive, thanks to its compact size, light controls, and excellent visibility, coupled with an automatic gearbox for convenience. Its practical design includes a peppy, fuel-efficient engine with a CNG option, while offering ample cabin space for its size. ",
+									"type": "text"
+								},
+								{
+									"key": "carType",
+									"value": "Hatchback",
+									"type": "text"
+								},
+								{
+									"key": "fuelType",
+									"value": "Diesel",
+									"type": "text"
+								},
+								{
+									"key": "transmission",
+									"value": "Automatic",
+									"type": "text"
+								},
+								{
+									"key": "company",
+									"value": "Maruti",
+									"type": "text"
+								},
+								{
+									"key": "seatingCapacity",
+									"value": "5",
+									"type": "text"
+								},
+								{
+									"key": "engine",
+									"value": "998",
+									"type": "text"
+								},
+								{
+									"key": "mileage",
+									"value": "20",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "8",
+									"type": "text"
+								},
+								{
+									"key": "images",
+									"type": "file",
+									"src": [
+										"/Users/navyasachdev/Downloads/cars/celerio/celerio-exterior-right-front-three-quarter-5.jpeg.webp",
+										"/Users/navyasachdev/Downloads/cars/celerio/new-gen-celerio-interior-dashboard.jpeg.webp",
+										"/Users/navyasachdev/Downloads/cars/celerio/new-gen-celerio-interior-front-row-seats-2.jpeg.webp"
+									]
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/cars/6738d6e19ac12cb9dc21e750",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"cars",
+								"6738d6e19ac12cb9dc21e750"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteCar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/cars/6738ad68d17a0b73cc69ba5f",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"cars",
+								"6738ad68d17a0b73cc69ba5f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "searchCar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/cars/search?keyword=SUV",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"cars",
+								"search"
+							],
+							"query": [
+								{
+									"key": "keyword",
+									"value": "SUV"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "CRUD Operations on Cars"
+		}
+	]
+}
