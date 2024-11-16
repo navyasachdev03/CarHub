@@ -8,6 +8,7 @@ const corsConfig = {
   credentials: true,
   origin: true,
 };
+
 app.use(cors(corsConfig))
 
 app.use(express.json({ limit: "'50kb'" }));
