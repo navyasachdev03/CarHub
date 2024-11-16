@@ -7,6 +7,7 @@ import { Circles } from 'react-loader-spinner';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import API_BASE_URL from '../../ApiBaseURL';
+import Cookies from 'js-cookie';
 
 const CarListPage = ({ userData, addCarToUserData }) => {
     const [cars, setCars] = useState([]);
@@ -26,6 +27,7 @@ const CarListPage = ({ userData, addCarToUserData }) => {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
+                        Authorization: `Bearer ${Cookies.get("accessToken")}`,
                     },
                     credentials: 'include',
                 });
@@ -40,6 +42,7 @@ const CarListPage = ({ userData, addCarToUserData }) => {
                             method: 'GET',
                             headers: {
                                 'Content-Type': 'application/json',
+                                Authorization: `Bearer ${Cookies.get("accessToken")}`,
                             },
                             credentials: 'include',
                         })
@@ -96,6 +99,7 @@ const CarListPage = ({ userData, addCarToUserData }) => {
             });
 
             await fetch(`${API_BASE_URL}cars/`, {
+                headers: {Authorization: `Bearer ${Cookies.get("accessToken")}`},
                 method: 'POST',
                 body: formDataToSend,
                 credentials: 'include',

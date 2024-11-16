@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { FaCheckCircle, FaCircle } from "react-icons/fa";
 import API_BASE_URL from "../../ApiBaseURL";
+import Cookies from "js-cookie";
 
 const Account = ({ onLogin }) => {
     const [isSignUp, setIsSignUp] = useState(false);
@@ -94,6 +95,8 @@ const Account = ({ onLogin }) => {
                 console.log('Login response:', data);
                 if (data.statusCode === 200) {
                     const userData = { email: data.data.user.email, name: data.data.user.name, contact: data.data.user.contact, cars:[data.data.user.cars] };
+                    Cookies.set("accessToken", data.data.accessToken);
+                    Cookies.set("refreshToken", data.data.refreshToken);
                     onLogin(userData);
                     alert('Login successful');
                 } else if (data.statusCode === 401) {

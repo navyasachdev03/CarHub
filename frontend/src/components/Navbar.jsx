@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { FaSearch, FaSignOutAlt } from 'react-icons/fa';
 import API_BASE_URL from '../../ApiBaseURL';
 import logo from '/assets/logo.png';
+import Cookies from 'js-cookie';
 
 const Navbar = ({ setSearchTerm, onSearch }) => {
   const navigate = useNavigate();
@@ -14,6 +15,7 @@ const Navbar = ({ setSearchTerm, onSearch }) => {
   const handleLogout = async () => {
     try {
       const response = await fetch(`${API_BASE_URL}auth/logout`, {
+        headers: {Authorization: `Bearer ${Cookies.get("accessToken")}`},
         method: 'POST',
         credentials: 'include',
       });

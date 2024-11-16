@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
 import { useLocation, useNavigate } from 'react-router-dom';
 import API_BASE_URL from '../../ApiBaseURL';
+import Cookies from "js-cookie";
 
 const CarDetailPage = ({ removeCarFromUserData }) => {
     const location = useLocation();
@@ -53,6 +54,7 @@ const CarDetailPage = ({ removeCarFromUserData }) => {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
+                    Authorization: `Bearer ${Cookies.get("accessToken")}`,
                 },
                 body: JSON.stringify(editedCar),
                 credentials: 'include',
@@ -78,6 +80,7 @@ const CarDetailPage = ({ removeCarFromUserData }) => {
     const handleDeleteCar = async () => {
         try {
             const response = await fetch(`${API_BASE_URL}cars/${car._id}`, {
+                headers: {Authorization: `Bearer ${Cookies.get("accessToken")}`},
                 method: 'DELETE',
                 credentials: 'include',
             });
