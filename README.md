@@ -141,9 +141,8 @@ carhub/
     ├── src/                   # React components and pages
     │   ├── components/        # Reusable components
     │   ├── pages/             # Main project pages
-    │   ├── data/              # Sample/static data files
-    │   └── context/           # Context providers
-    ├── App.js                 # Main Application file
+    │   └── App.jsx            # Main Application file 
+    ├── ApiBaseURL.js          # Base URL for API Request           
     └── tailwind.config.js     # Tailwind CSS configuration file
 ```
 
