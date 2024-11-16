@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 import { useLocation, useNavigate } from 'react-router-dom';
 import API_BASE_URL from '../../ApiBaseURL';
 import Cookies from "js-cookie";
@@ -278,6 +279,8 @@ const CarDetailPage = ({ removeCarFromUserData }) => {
                     </div>
                 </div>
             )}
+
+            <Footer />
         </div>
     );
 };

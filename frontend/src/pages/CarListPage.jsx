@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import CarListCarousel from '../components/CarListCarousel';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 import AddCarModal from '../components/AddCarModal';
 import { FaPlus } from 'react-icons/fa';
 import { Circles } from 'react-loader-spinner';
@@ -186,6 +187,8 @@ const CarListPage = ({ userData, addCarToUserData }) => {
                 onClose={handleModalClose}
                 onSubmit={handleModalSubmit}
             />
+
+            <Footer />
         </div>
     );
 };
