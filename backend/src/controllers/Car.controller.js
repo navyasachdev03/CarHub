@@ -2,6 +2,7 @@ import { asyncHandler } from "../utils/asyncHandler.js";
 import { ApiError } from "../utils/ApiError.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 import { Car } from "../models/car.model.js";
+import { User } from "../models/user.model.js";
 import { uploadOnCloudinary } from "../utils/cloudinary.js";
 import fs from "fs";
 
@@ -17,12 +18,13 @@ const handleImageUploads = async (files) => {
 
 
 const createCar = asyncHandler(async (req, res) => {
-  const { title, description, carType, fuelType, transmission, company, seatingCapacity, engine, mileage } = req.body;
 
-  if (!title || !carType || !fuelType || !transmission || !company || !seatingCapacity || !engine || !mileage) {
+  const { title, description, carType, fuelType, transmission, company, seatingCapacity, engine, mileage, price } = req.body;
+
+  if (!title || !carType || !fuelType || !transmission || !company || !seatingCapacity || !engine || !mileage || !price) {
     throw new ApiError(400, "All required fields must be provided.");
   }
-
+  
   const imageUrls = await handleImageUploads(req.files);
 
   const car = await Car.create({
@@ -36,6 +38,7 @@ const createCar = asyncHandler(async (req, res) => {
     seatingCapacity,
     engine,
     mileage,
+    price,
   });
 
   req.user.cars.push(car._id);
@@ -63,7 +66,7 @@ const getCarById = asyncHandler(async (req, res) => {
 
 
 const updateCar = asyncHandler(async (req, res) => {
-  const { title, description, carType, fuelType, transmission, company, seatingCapacity, engine, mileage } = req.body;
+  const { title, description, carType, fuelType, transmission, company, seatingCapacity, engine, mileage, price } = req.body;
 
   const car = await Car.findById(req.params.carId);
   if (!car) {
@@ -81,27 +84,16 @@ const updateCar = asyncHandler(async (req, res) => {
     updatedImages = await handleImageUploads(req.files);
   }
 
-  Object.assign(car, {
-    title: title || car.title,
-    description: description || car.description,
-    images: updatedImages,
-    carType: carType || car.carType,
-    fuelType: fuelType || car.fuelType,
-    transmission: transmission || car.transmission,
-    company: company || car.company,
-    seatingCapacity: seatingCapacity || car.seatingCapacity,
-    engine: engine || car.engine,
-    mileage: mileage || car.mileage,
-  });
+  const updatedItem = await Car.findByIdAndUpdate(req.params.carId, req.body, updatedImages, { new: true });
 
-  await car.save();
-
-  res.status(200).json(new ApiResponse(200, car, "Car updated successfully."));
+  res.status(200).json(new ApiResponse(200, updatedItem, "Car updated successfully."));
 });
 
 
 const deleteCar = asyncHandler(async (req, res) => {
-  const car = await Car.findById(req.params.carId);
+
+  const {carId} = req.params;
+  const car = await Car.findById(carId);
   if (!car) {
     return res
     .status(404)
@@ -111,10 +103,11 @@ const deleteCar = asyncHandler(async (req, res) => {
   if (!req.user.cars.includes(car._id.toString())) {
     throw new ApiError(403, "You do not have permission to delete this car.");
   }
+  await Car.findByIdAndDelete(carId);
 
-  req.user.cars = req.user.cars.filter((id) => id.toString() !== car._id.toString());
-  await req.user.save();
-  await car.remove();
+  await User.findByIdAndUpdate(req.user._id, {
+    $pull: { cars: carId },
+  });
 
   res.status(200).json(new ApiResponse(200, {}, "Car deleted successfully."));
 });

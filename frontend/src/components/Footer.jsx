@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import facebook from "/assets/facebook.png";
+import github from "/assets/github-mark.png";
 import instagram from "/assets/instagram.png";
 import linkedin from "/assets/linkedin.png";
 import logo from "/assets/logo.png";
@@ -58,7 +58,7 @@ export default function Footer() {
 
               {/* Link to GitHub profile */}
               <a href="https://github.com/gbgaurav007" target="_blank" rel="noopener noreferrer">
-                <img src={facebook} alt="Github" className="cursor-pointer h-11 w-auto hover:opacity-80" />
+                <img src={github} alt="Github" className="cursor-pointer h-11 w-auto hover:opacity-80" />
               </a>
 
               {/* Link to LinkedIn profile */}

@@ -30,7 +30,7 @@ const EventModal = ({ event, closeModal }) => {
 
   return (
     <div
-      className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-10"
+      className="fixed inset-0 overflow-auto no-scrollbar bg-black bg-opacity-50 flex justify-center items-center z-10"
       onClick={closeModal}
     >
       <motion.div

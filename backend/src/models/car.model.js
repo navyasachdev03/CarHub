@@ -54,8 +54,12 @@ const carSchema = new Schema(
       type: Number,
       required: true,
     },
+    price: {
+      type: Number,
+      required: true,
+    },
   },
   { timestamps: true }
 );
 
-module.exports = mongoose.model('Car', carSchema);
+export const Car = mongoose.model("Car", carSchema);

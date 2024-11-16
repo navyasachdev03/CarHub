@@ -21,7 +21,7 @@ carRouter.route("/search")
 
 carRouter.route("/:carId")
   .get(verifyJWT, getCarById)
-  .patch(verifyJWT, upload.array("images", 10), updateCar)
+  .put(verifyJWT, upload.array("images", 10), updateCar)
   .delete(verifyJWT, deleteCar);
 
 export default carRouter;
