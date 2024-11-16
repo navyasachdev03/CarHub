@@ -1,6 +1,6 @@
 ## CarHub
 
-CarHub is a car listing and management platform that allows users to showcase their vehicles. It provides a user-friendly interface to browse through a variety of cars based on type, fuel type, transmission, and more. The platform is built using React for the frontend, Node.js for the backend, and MongoDB as the database.
+CarHub is a car listing and management platform that allows users to showcase their vehicles. It provides a user-friendly interface to browse through a variety of cars based on type, fuel type, transmission, and more. The platform is built using React for the frontend, Node.js for the backend and MongoDB as the database.
 
 ### Features
 
