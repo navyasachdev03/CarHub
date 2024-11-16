@@ -1,10 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { FaCheckCircle, FaCircle } from "react-icons/fa";
 import API_BASE_URL from "../../ApiBaseURL";
 import Cookies from "js-cookie";
+import { toast } from 'react-toastify';
 
 const Account = ({ onLogin }) => {
+
+    useEffect(() => {
+        toast.info("API responses may sometimes take up to 50 seconds to load.", {
+            position: "top-right",
+            autoClose: 4000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            style: {
+                color: 'black'
+            }
+        });
+    }, []);
+
+
     const [isSignUp, setIsSignUp] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
     const [formData, setFormData] = useState({
