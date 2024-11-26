@@ -41,7 +41,6 @@ export default function Footer() {
           <section className="mb-4 md:mb-0 text-black items-center flex flex-col">
             <h4 className="font-semibold">Contact Us</h4>
             <ul className="list-none mt-2">
-              <li>navya.sachdev18@gmail.com</li>
             </ul>
           </section>
 
@@ -49,11 +48,11 @@ export default function Footer() {
             <h4 className="font-semibold">Social Links</h4>
             <div className="flex space-x-2 mt-2">
 
-              <a href="https://github.com/navyasachdev03" target="_blank" rel="noopener noreferrer">
+              <a target="_blank" rel="noopener noreferrer">
                 <img src={github} alt="Github" className="cursor-pointer h-11 w-auto hover:opacity-80" />
               </a>
 
-              <a href="https://linkedin.com/in/navyasachdev03" target="_blank" rel="noopener noreferrer">
+              <a target="_blank" rel="noopener noreferrer">
                 <img src={linkedin} alt="LinkedIn" className="cursor-pointer h-11 w-auto hover:opacity-80" />
               </a>
             </div>
